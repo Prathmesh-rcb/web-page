@@ -1,0 +1,68 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f2f2f2;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      background: #e0ffe0;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Employee Details</h2>
+    <input type="text" id="empId" placeholder="Employee ID" />
+    <input type="text" id="empName" placeholder="Employee Name" />
+    <input type="number" id="empSalary" placeholder="Employee Salary" />
+
+    <button onclick="showEmployeeInfo()">Submit</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function showEmployeeInfo() {
+      const id = document.getElementById('empId').value;
+      const name = document.getElementById('empName').value;
+      const salary = document.getElementById('empSalary').value;
+
+      if (id && name && salary) {
+        document.getElementById('result').innerHTML = `
+          <strong>Employee Information:</strong><br>
+          ID: ${id}<br>
+          Name: ${name}<br>
+          Salary: $${salary}
+        `;
+      } else {
+        document.getElementById('result').innerHTML = `<span style="color: red;">Please fill in all fields.</span>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
